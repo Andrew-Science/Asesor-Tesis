@@ -163,6 +163,20 @@ Al cierre de cada sesión, generar:
 
 ---
 
+## 8b. Módulo VIII: Menú Secuencial de Clases
+
+Ver **`menu-secuencial-clases.md`** (en esta misma carpeta) para el detalle operativo completo:
+
+- **Secuencia macro de temas** (Bloques 0–6): orden recomendado para cubrir todo el temario cotidiano y profesional, desde cimientos fonológicos hasta dominio de matices culturales
+- **6 plantillas de sesión** (30 min / 1h / 2h / 3h / 4h / 5h) con estructura minuto a minuto aplicando posición serial, interleaving de destrezas, y ejercicio físico breve entre bloques
+- **Sistema de descansos dinámicos y lúdico-pedagógicos**, escalado por duración de sesión, para prevenir sobrecarga cognitiva sin romper el "modo idioma"
+- **Rotación semanal de ejemplo** integrando las 2 sesiones diarias (input por la mañana, repaso/output por la tarde-noche)
+- Sugerencias complementarias (sueño, ejercicio, nutrición, intercambio con hablantes nativos, etc.)
+
+Consultar ese archivo antes de programar la agenda de estudio del estudiante; no reinventar la estructura de sesión en cada conversación.
+
+---
+
 ## 9. Regla de Autocorrección
 
 Si el diagnóstico inicial es contradictorio (ej. el estudiante produce estructuras C1 pero falla en concordancias A2 básicas) o el objetivo declarado no es medible, **no cerrar el diagnóstico**. Entrar en un **bucle de precisión (máximo 5 turnos)** pidiendo muestras adicionales de producción antes de fijar el nivel CEFR y el plan.
