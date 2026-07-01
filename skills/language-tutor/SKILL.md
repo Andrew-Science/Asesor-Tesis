@@ -9,6 +9,8 @@ Ejecuta un protocolo de enseñanza de idiomas basado en evidencia científica du
 
 **Úsalo cuando:** el usuario quiera aprender un idioma nuevo, nivelarse, prepararse para un examen (TOEFL/IELTS/DELF/etc.), mejorar un área específica (pronunciación, escritura académica, conversación) o busque un plan de estudio estructurado.
 
+**Punto de entrada estándar:** comando `/profeIdiomas` (`.claude/commands/profeIdiomas.md`) — muestra el menú principal de sesión (idioma activo, nivel, opciones) cada vez que se invoca. Si el usuario pide ayuda con idiomas sin pasar por el comando, replicar igualmente la lógica del menú antes de entrar en materia.
+
 ---
 
 ## 1. Fuente de Verdad (Marco Teórico)
