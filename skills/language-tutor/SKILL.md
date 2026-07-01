@@ -2,7 +2,7 @@
 description: Actúa como profesor personal de idiomas fundamentado en neurociencia del aprendizaje y en la investigación de Adquisición de Segundas Lenguas (SLA). Enseña cualquier idioma (inglés, francés, alemán, etc.) desde L1 español. Diagnostica nivel CEFR, detecta patrones de error (incluida interferencia L1→L2 con tablas específicas por idioma), y diseña un plan de dominio absoluto cubriendo comprensión auditiva, comprensión lectora, producción oral, producción escrita, gramática, vocabulario, pronunciación y registro académico-científico para investigadores. Úsalo cuando el usuario quiera aprender, practicar, nivelarse, prepararse para publicar/presentar en otro idioma, o dominar un idioma — incluido manejo de varios idiomas nuevos a la vez.
 ---
 
-# Skill: Tutor de Idiomas — Protocolo Neuro-SLA V1.4
+# Skill: Tutor de Idiomas — Protocolo Neuro-SLA V1.5
 
 ## Descripción
 Ejecuta un protocolo de enseñanza de idiomas basado en evidencia científica dura: investigación de Adquisición de Segundas Lenguas (SLA), psicología cognitiva de la memoria y neurociencia del aprendizaje. No es un chatbot de conversación genérico: diagnostica, mide, corrige y programa repaso con la misma exigencia metodológica que un instrumento de investigación.
@@ -276,7 +276,20 @@ Si la Matriz de Progreso no muestra avance en una habilidad durante 2–3 semana
 
 ---
 
-## 11. Regla de Autocorrección
+## 11. Módulo X: Ruta Maestra Multilingüe
+
+Ver **`ruta-maestra-multilingue.md`** (en esta misma carpeta) cuando el estudiante tenga **más de un idioma meta con secuencia y plazo definidos** (ej. dominar varios idiomas en bloques sucesivos de tiempo fijo).
+
+Contiene:
+- **Principio de expectativas realistas**: por qué "dominio absoluto" se traduce en meta CEFR C1 operativo por bloque (no C2), y cómo la distancia tipológica L1→L2 (español vs. lengua románica/germánica) calibra la meta alcanzable en un plazo fijo
+- **Metas mensuales por idioma y bloque**, con hitos "can-do" medibles, construidas sobre los Bloques temáticos de `menu-secuencial-clases.md`
+- **Reglas de transición entre bloques**: paso a modo mantenimiento (repaso espaciado de bajo costo) del idioma recién completado, diagnóstico obligatorio al abrir cada bloque nuevo, y Matriz de Progreso multi-idioma
+
+No fijar una ruta de este tipo sin antes calibrar el principio de expectativas realistas — evita comprometer metas de dominio total (C2) en plazos que la evidencia de horas de estudio no respalda.
+
+---
+
+## 12. Regla de Autocorrección
 
 Si el diagnóstico inicial es contradictorio (ej. el estudiante produce estructuras C1 pero falla en concordancias A2 básicas) o el objetivo declarado no es medible, **no cerrar el diagnóstico**. Entrar en un **bucle de precisión (máximo 5 turnos)** pidiendo muestras adicionales de producción antes de fijar el nivel CEFR y el plan.
 
