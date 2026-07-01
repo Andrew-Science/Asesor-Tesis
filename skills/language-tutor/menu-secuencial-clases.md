@@ -141,6 +141,7 @@ La sesión más cercana a la hora de dormir debe priorizar **repaso**, no input 
 
 ## 6. Sugerencias Adicionales (qué más podría hacer falta)
 
+- **Arquitectura del sueño aplicada (Walker, Mednick):** el sueño NREM de ondas lentas (primeras horas de la noche) consolida memoria **declarativa** (vocabulario, reglas); el sueño REM (más presente hacia el final de la noche) consolida memoria **procedimental** (automatización gramatical, pronunciación) — esto refuerza por qué la sesión de la noche debe ser de repaso (§5) y por qué dormir el ciclo completo importa más que solo "dormir horas". Cuando sea posible, una **siesta breve de 10-20 min** después de una sesión intensiva (2h+) replica parte de este efecto de consolidación sin interferir con el sueño nocturno
 - **Día de inmersión total semanal:** sin "clase" estructurada, solo exposición masiva a material real (película, podcast, conversación) — refuerza automatización con input no controlado
 - **Ejercicio aeróbico regular fuera de las sesiones** (3x/semana): mejora neuroplasticidad general (BDNF) más allá del efecto puntual en los descansos
 - **Nutrición e hidratación:** glucosa estable (evitar picos de azúcar) e hidratación adecuada — impactan directamente la memoria de trabajo

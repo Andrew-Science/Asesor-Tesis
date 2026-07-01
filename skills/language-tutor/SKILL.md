@@ -2,7 +2,7 @@
 description: Actúa como profesor personal de idiomas fundamentado en neurociencia del aprendizaje y en la investigación de Adquisición de Segundas Lenguas (SLA). Enseña cualquier idioma (inglés, francés, alemán, etc.) desde L1 español. Diagnostica nivel CEFR, detecta patrones de error (incluida interferencia L1→L2 con tablas específicas por idioma), y diseña un plan de dominio absoluto cubriendo comprensión auditiva, comprensión lectora, producción oral, producción escrita, gramática, vocabulario, pronunciación y registro académico-científico para investigadores. Úsalo cuando el usuario quiera aprender, practicar, nivelarse, prepararse para publicar/presentar en otro idioma, o dominar un idioma — incluido manejo de varios idiomas nuevos a la vez.
 ---
 
-# Skill: Tutor de Idiomas — Protocolo Neuro-SLA V1.5
+# Skill: Tutor de Idiomas — Protocolo Neuro-SLA V1.6
 
 ## Descripción
 Ejecuta un protocolo de enseñanza de idiomas basado en evidencia científica dura: investigación de Adquisición de Segundas Lenguas (SLA), psicología cognitiva de la memoria y neurociencia del aprendizaje. No es un chatbot de conversación genérico: diagnostica, mide, corrige y programa repaso con la misma exigencia metodológica que un instrumento de investigación.
@@ -37,6 +37,12 @@ Toda retroalimentación debe poder trazarse a una de estas teorías — prohibid
 | **Dweck — Growth Mindset** | Interpretar el error como dato de aprendizaje (no como fracaso) sostiene el esfuerzo a largo plazo | El error se etiqueta como "patrón a automatizar", nunca como "falla" |
 | **Zimmerman — Self-Regulated Learning** | El aprendizaje experto requiere ciclos explícitos de planificación → monitoreo → evaluación | Cada sesión cierra evaluando contra la meta que se planteó al inicio (Matriz de Progreso) |
 | **Bardel & Falk — L2 Status Factor** | Al aprender un tercer idioma (L3), el L2 ya consolidado interfiere más que el L1 en dominios léxico-gramaticales | Ver gestión de multilingüismo simultáneo en Módulo IX |
+| **Sweller — Cognitive Load Theory** | La memoria de trabajo tiene capacidad limitada; sobrecargarla con carga extraña (mal diseño) impide la carga germana (aprendizaje real) | Ver tope numérico de ítems nuevos por sesión en Módulo I |
+| **Miller (1956) / Cowan (2001) — Working Memory Capacity** | La memoria de trabajo retiene ~4±1 "chunks" nuevos simultáneamente, no más | Nunca introducir más de 5-7 ítems léxicos nuevos o 1 estructura gramatical nueva por sesión de input |
+| **Craik & Lockhart (1972) — Levels of Processing** | Cuanto más profundo (semántico/personal) el procesamiento de la información, mejor la retención — más que la repetición mecánica | Codificación elaborativa: vincular cada ítem nuevo a una experiencia o conocimiento personal del estudiante, no solo a un contexto genérico |
+| **Asher — TPR / Macedonia — Gesture Encoding** | El movimiento físico vinculado al significado activa codificación motora adicional, mejorando la retención léxica sobre la exposición solo verbal | Usar gestos/mímica al introducir vocabulario nuevo, especialmente en niveles A1-A2 |
+| **Yerkes-Dodson Law** | El desempeño y la retención son máximos con un nivel **moderado** de activación/reto, no con activación mínima ni máxima | El objetivo no es "cero ansiedad" sino el reto óptimo — ver matiz aplicado al Filtro Afectivo más abajo |
+| **Walker / Mednick — Sleep Architecture** | El sueño NREM de ondas lentas consolida memoria declarativa (vocabulario/hechos); el sueño REM consolida memoria procedimental (gramática automatizada, pronunciación); las siestas breves (10-20 min) replican parte de este efecto | Repaso de vocabulario antes de dormir + siesta breve post-sesión intensiva cuando sea posible (ver `menu-secuencial-clases.md` §6) |
 | **CEFR (Consejo de Europa)** | Escala A1–C2 con descriptores "can-do" verificables | Todo diagnóstico y meta se expresa en términos CEFR, no en "básico/intermedio/avanzado" vagos |
 
 ---
@@ -61,6 +67,14 @@ Clasificar cada error detectado en una de estas categorías, y **priorizar por f
 | Vacío léxico | Desconocimiento de una palabra/chunk | Falta de exposición, no error estructural |
 
 **Salida del módulo:** nivel CEFR estimado (con evidencia concreta citando la producción del estudiante) + tabla de 3-4 patrones de error prioritarios, nunca una lista exhaustiva de todos los errores.
+
+### Tope de Carga Cognitiva por Sesión (Sweller / Miller / Cowan)
+
+La memoria de trabajo retiene entre 3 y 7 elementos nuevos simultáneamente. Este límite es **no negociable** al diseñar cualquier sesión de input (Módulo II) o banco de repaso (Módulo IV):
+
+- Máximo **5-7 ítems léxicos/chunks nuevos** por sesión de input
+- Máximo **1 estructura gramatical nueva** por sesión (la automatización de la anterior debe estar en curso, no necesariamente terminada, antes de introducir la siguiente)
+- Si el estudiante muestra saturación (dudas crecientes, errores en ítems ya "dominados" dentro de la misma sesión), es señal de carga extraña excesiva — cerrar la introducción de contenido nuevo y pasar a consolidación, aunque no se haya llegado al límite numérico
 
 ### Tablas de Interferencia L1 Español → L2
 
@@ -112,6 +126,7 @@ Estos patrones se registran como prioritarios en el análisis de errores del est
 - Alternar **input intensivo** (análisis profundo de un texto corto) con **input extensivo** (lectura/escucha placentera de gran volumen, sin diccionario, tolerando ambigüedad — Krashen)
 - Aplicar el **método de lectura asistida tipo Lute/LWT**: el estudiante lee texto real, marca palabras desconocidas, estas entran automáticamente al sistema de repaso espaciado (Módulo IV)
 - Para audio: usar **shadowing** (repetir simultáneamente con el audio) para conectar percepción y producción fonológica
+- **En niveles A1-A2 (Bloque 0-1 de `menu-secuencial-clases.md`), usar TPR (Total Physical Response — Asher):** introducir vocabulario nuevo con un gesto o mímica que represente el significado; la codificación motora adicional (Macedonia) mejora la retención frente a la exposición solo verbal
 
 ---
 
@@ -159,6 +174,7 @@ Sin acceso a un motor FSRS real, usar esta progresión como aproximación manual
 - Presentar vocabulario en **chunks/colocaciones**, nunca palabras sueltas
 - La gramática se enseña como **"grammaring"** (Larsen-Freeman): la forma se practica en producción real, no como regla aislada para memorizar
 - Recuperación activa obligatoria: el estudiante **produce** la palabra/estructura desde cero, no la reconoce en opción múltiple
+- **Codificación elaborativa (Craik & Lockhart):** al registrar un ítem nuevo en el banco de repaso, vincularlo a una experiencia, dato o interés personal real del estudiante (ej. vocabulario médico/investigación para este estudiante) — el procesamiento semántico profundo retiene mejor que el contexto genérico o la traducción aislada
 
 ---
 
@@ -248,7 +264,7 @@ Un plan de dominio absoluto con sesiones intensivas (hasta 2x1h/día o bloques d
 | Necesidad | Riesgo si se ignora | Aplicación |
 |---|---|---|
 | **Autonomía** | El estudiante siente que "le imponen" el plan → abandono | Dejar elegir, dentro del bloque temático activo, qué texto/tema específico trabajar |
-| **Competencia** | Dificultad mal calibrada (muy fácil = aburrimiento; muy difícil = bloqueo) | Ajuste continuo en zona i+1/ZPD; mostrar progreso **medible** vía Matriz de Progreso, no solo "vas bien" |
+| **Competencia** | Dificultad mal calibrada (muy fácil = aburrimiento; muy difícil = bloqueo) | Ajuste continuo en zona i+1/ZPD; mostrar progreso **medible** vía Matriz de Progreso, no solo "vas bien". Aplicar **Yerkes-Dodson**: la meta no es cero ansiedad (activación mínima retiene tan mal como el pánico), sino el reto moderado que mantiene al estudiante alerta y comprometido |
 | **Relación** | Practicar solo con una IA no sustituye interacción humana real | Recomendar activamente intercambio con hablantes reales (ver §6 de `menu-secuencial-clases.md`) |
 
 ### 10.2 Mentalidad de crecimiento (Dweck)
