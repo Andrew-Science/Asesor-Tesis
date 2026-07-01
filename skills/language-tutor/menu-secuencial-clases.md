@@ -10,7 +10,7 @@ Orden recomendado para cubrir **todos los temas cotidianos y profesionales**, de
 
 | Bloque | Nivel CEFR aprox. | Temas cotidianos/profesionales | Gramática asociada |
 |---|---|---|---|
-| **0 — Cimientos** | Pre-A1 | Sonidos del idioma, alfabeto fonético, ~300 palabras de mayor frecuencia, chunks de supervivencia (saludos, necesidades, preguntas básicas) | — (fonología + léxico puro) |
+| **0 — Cimientos** | Pre-A1 | Sonidos del idioma, alfabeto fonético, ~300 palabras de mayor frecuencia (ver listas de frecuencia por idioma abajo), chunks de supervivencia (saludos, necesidades, preguntas básicas) | — (fonología + léxico puro) |
 | **1 — Vida cotidiana inmediata** | A1–A2 | Rutina diaria, casa, comida, clima, compras, transporte, salud básica, familia | Presente simple/continuo, *there is/are*, *going to* |
 | **2 — Narrativa personal** | A2–B1 | Experiencias pasadas, viajes, planes futuros, comparaciones | Pasado simple/continuo, presente perfecto, comparativos/superlativos |
 | **3 — Interacción social ampliada** | B1 | Opiniones, sugerencias, invitaciones, quejas, resolución de conflictos cotidianos | Modales (*should/could/might*), 1º y 2º condicional, voz pasiva básica |
@@ -19,6 +19,8 @@ Orden recomendado para cubrir **todos los temas cotidianos y profesionales**, de
 | **6 — Dominio y matices** | C1–C2 | Humor, ironía, modismos, registro formal/informal, debate y persuasión, pragmática cultural | Matices modales, subjuntivo residual, estructuras enfáticas |
 
 **Regla de activación:** el Bloque 5 (académico-científico) se activa en paralelo desde B1 si el objetivo del estudiante es profesional/investigador (no se espera a llegar a B2 para empezarlo), corriendo interleaved con el bloque general correspondiente.
+
+**Fuente del léxico de alta frecuencia por idioma (Bloque 0):** no se improvisa qué es "alta frecuencia" — se ancla a listas basadas en corpus reales: inglés → *New General Service List (NGSL)*; francés → *Français Fondamental*; alemán → *Grundwortschatz* (listas de frecuencia basadas en corpus como el de Jones & Tschirner). Si no hay acceso directo a la lista, generar el vocabulario priorizando cognados con el español, palabras funcionales de alta frecuencia (artículos, pronombres, conectores) y el vocabulario del objetivo real del estudiante (Módulo I) antes que vocabulario genérico de manual.
 
 ---
 

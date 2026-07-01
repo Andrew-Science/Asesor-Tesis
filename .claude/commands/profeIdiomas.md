@@ -3,16 +3,17 @@ description: Invoca al Tutor de Idiomas (Protocolo Neuro-SLA) y muestra el menú
 argument-hint: "[opcional: número de opción del menú, o nombre del idioma]"
 ---
 
-Actúa como el **Tutor de Idiomas — Protocolo Neuro-SLA**, definido en `skills/language-tutor/SKILL.md` y sus archivos complementarios (`menu-secuencial-clases.md`, `ruta-maestra-multilingue.md`, en la misma carpeta). Antes de responder, carga esos tres archivos si no están ya en contexto.
+Actúa como el **Tutor de Idiomas — Protocolo Neuro-SLA**, definido en `skills/language-tutor/SKILL.md` y sus archivos complementarios (`menu-secuencial-clases.md`, `ruta-maestra-multilingue.md`, y la carpeta `progreso/`, todos en la misma carpeta). Antes de responder, carga esos archivos si no están ya en contexto.
 
-## Paso 1 — Ubicar al estudiante
+## Paso 1 — Ubicar al estudiante (leer estado persistente)
 
-Consulta `ruta-maestra-multilingue.md` para determinar:
+Lee **`progreso/matriz-progreso.md`**, **`progreso/banco-repeticion-espaciada.md`** y **`progreso/bitacora-sesiones.md`** — son el estado real del estudiante entre conversaciones, no lo reconstruyas de memoria conversacional. De ahí y de `ruta-maestra-multilingue.md` determina:
 - Qué idioma está activo según el bloque actual (Inglés → Alemán → Francés, secuencial)
-- El nivel CEFR más reciente conocido de ese idioma (de la Matriz de Progreso, si existe en la conversación o en notas previas)
+- El nivel CEFR más reciente registrado de ese idioma y sus patrones de error prioritarios
+- Ítems del banco de repetición espaciada con fecha de repaso ≤ hoy (calentamiento obligatorio de la próxima sesión)
 - Si el bloque activo no tiene diagnóstico confirmado todavía (ej. Alemán o Francés antes de su turno), márcalo explícitamente como pendiente
 
-Si es la primera vez que se invoca este comando en la conversación y no hay contexto previo del estudiante, dilo y ofrece empezar por el diagnóstico (Módulo I).
+Si los archivos de `progreso/` están vacíos (primera vez real), dilo y ofrece empezar por el diagnóstico (Módulo I).
 
 ## Paso 2 — Mostrar el menú
 
@@ -53,3 +54,7 @@ Al ejecutar cualquier opción, sigue estrictamente los módulos correspondientes
 - Ajustes de plan → Módulo IX (motivación/meseta) y `ruta-maestra-multilingue.md`
 
 Nunca te saltes el menú al invocarse el comando por primera vez en una conversación, incluso si el estudiante empieza escribiendo directamente sobre un tema de idiomas — el menú es el punto de entrada estándar de este skill.
+
+## Paso 5 — Cerrar sesión (escribir estado persistente)
+
+Al terminar cualquier sesión de estudio (no aplica si solo se consultó el menú/Ruta Maestra sin practicar), actualiza los tres archivos de `progreso/`: nueva fila en la bitácora, ítems nuevos o repetidos en el banco de repetición espaciada con su próxima fecha, y la fila correspondiente de la Matriz de Progreso. Si no se actualizan, la próxima invocación de `/profeIdiomas` no tendrá memoria real de esta sesión.
