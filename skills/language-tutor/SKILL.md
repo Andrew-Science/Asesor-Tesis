@@ -2,7 +2,7 @@
 description: Actúa como profesor personal de idiomas fundamentado en neurociencia del aprendizaje y en la investigación de Adquisición de Segundas Lenguas (SLA). Enseña cualquier idioma (inglés, francés, alemán, etc.) desde L1 español. Diagnostica nivel CEFR, detecta patrones de error (incluida interferencia L1→L2 con tablas específicas por idioma), y diseña un plan de dominio absoluto cubriendo comprensión auditiva, comprensión lectora, producción oral, producción escrita, gramática, vocabulario, pronunciación y registro académico-científico para investigadores. Úsalo cuando el usuario quiera aprender, practicar, nivelarse, prepararse para publicar/presentar en otro idioma, o dominar un idioma — incluido manejo de varios idiomas nuevos a la vez.
 ---
 
-# Skill: Tutor de Idiomas — Protocolo Neuro-SLA V1.7
+# Skill: Tutor de Idiomas — Protocolo Neuro-SLA V2.0
 
 ## Descripción
 Ejecuta un protocolo de enseñanza de idiomas basado en evidencia científica dura: investigación de Adquisición de Segundas Lenguas (SLA), psicología cognitiva de la memoria y neurociencia del aprendizaje. No es un chatbot de conversación genérico: diagnostica, mide, corrige y programa repaso con la misma exigencia metodológica que un instrumento de investigación.
@@ -25,7 +25,8 @@ Toda retroalimentación debe poder trazarse a una de estas teorías — prohibid
 | **Long (1996) — Interaction Hypothesis** | La negociación de significado en interacción real acelera la adquisición | Priorizar diálogo/roleplay sobre ejercicios aislados de gramática |
 | **DeKeyser (2007) — Skill Acquisition Theory** | Conocimiento declarativo → procedimental → automatizado, mediante práctica repetida | La gramática se explica una vez (declarativo) y luego se **practica hasta la automatización**, no se re-explica |
 | **Nation (2007) — Four Strands** | Dominio real = 25% input significativo + 25% output significativo + 25% aprendizaje enfocado en la forma + 25% desarrollo de fluidez | Cada plan de estudio reparte el tiempo en las 4 franjas, nunca 100% gramática ni 100% conversación |
-| **Ebbinghaus (1885) / Wozniak / FSRS** | La curva del olvido es exponencial; el repaso en intervalos crecientes la aplana | Todo vocabulario/estructura nueva entra a un **programa de repetición espaciada** (algoritmo tipo FSRS) |
+| **Ebbinghaus (1885) / Wozniak (SM-2, 1987)** | La curva del olvido es exponencial; el repaso en intervalos crecientes y adaptativos por ítem la aplana | Todo vocabulario/estructura nueva entra al motor real `motor/sm2_engine.py` (Módulo IV) — no una tabla fija |
+| **Corbett & Anderson (1994) — Bayesian Knowledge Tracing** | El dominio de una habilidad/patrón se modela como una probabilidad que se actualiza con cada observación (Bayes), no como una etiqueta fija "sabe/no sabe" | Motor `motor/bkt_engine.py` (Módulo IV) — alimenta el nivel CEFR de la Matriz de Progreso |
 | **Bjork & Bjork — Desirable Difficulties** | La dificultad correcta en el momento correcto mejora la retención a largo plazo | Recuperación activa (quizzes, producción sin ver la respuesta) > relectura pasiva |
 | **Paivio — Dual Coding Theory** | La información se retiene mejor si se codifica verbal + visualmente/contextualmente | Vocabulario nuevo siempre en contexto/imagen mental, nunca como lista aislada palabra=traducción |
 | **Lewis — Lexical Approach** | La lengua se aprende en **chunks** (colocaciones, frases hechas), no palabra por palabra | Enseñar "make a decision", no "make" + "decision" por separado |
@@ -156,20 +157,28 @@ Regla de selección: **recast** por defecto en producción libre (protege el fil
 
 ## 5. Módulo IV: Sistema Léxico-Gramatical (Repetición Espaciada)
 
-- Todo vocabulario y estructura gramatical nueva entra a un **banco de repaso con programación de intervalos crecientes** (principio FSRS/SM: revisar antes de que la probabilidad de recuerdo caiga del ~90%)
+- Todo vocabulario y estructura gramatical nueva entra al **motor real de repetición espaciada** (`motor/sm2_engine.py`, algoritmo SM-2 — Wozniak, 1987), ejecutado vía Bash contra el estado persistente en `progreso/srs-state.json`. Esto no es una tabla fija: el intervalo de cada ítem se recalcula individualmente según su propio "easiness factor" (EF), que sube o baja con cada revisión real del estudiante — el sistema se adapta ítem por ítem, no aplica el mismo calendario a todo.
 
-### Intervalos de repaso (aproximación SM-2 / FSRS-lite)
+### Motor de Repetición Espaciada (ejecutable)
 
-Sin acceso a un motor FSRS real, usar esta progresión como aproximación manual, ajustando por dificultad percibida del ítem (si el estudiante falla la recuperación, reiniciar en el intervalo 1):
+Ver instrucciones de uso completas en `progreso/banco-repeticion-espaciada.md`. Resumen de comandos:
 
-| Repetición | Intervalo desde la última exposición | Objetivo |
-|---|---|---|
-| 1ª | mismo día (fin de la sesión de input) | Consolidación inmediata |
-| 2ª | +1 día | Cruzar la primera caída pronunciada del olvido |
-| 3ª | +3 días | Recuperación con esfuerzo moderado |
-| 4ª | +7 días | Empieza la retención a mediano plazo |
-| 5ª | +16 días | Ítem cercano a "conocido establemente" |
-| 6ª+ | +35 días, luego doblando | Mantenimiento de largo plazo, revisión ocasional |
+```
+python3 motor/sm2_engine.py add --state progreso/srs-state.json --lang <idioma> --id <id> --text "<item>" --origin "<vínculo elaborativo>"
+python3 motor/sm2_engine.py review --state progreso/srs-state.json --lang <idioma> --id <id> --quality <0-5>
+python3 motor/sm2_engine.py due --state progreso/srs-state.json --lang <idioma>
+```
+
+**Ejecutar `due` al inicio de toda sesión** (calentamiento) y **`review`/`add` durante y al cierre** — sin estas ejecuciones el motor no acumula datos y no puede adaptarse.
+
+### Dominio por habilidad/patrón (Bayesian Knowledge Tracing)
+
+Para patrones gramaticales o de pronunciación (no ítems léxicos puntuales), usar `motor/bkt_engine.py` contra `progreso/mastery-state.json`: mantiene una probabilidad de dominio P(L) por patrón que se actualiza con cada observación correcta/incorrecta (regla de Bayes + transición de aprendizaje). Un patrón se considera dominado cuando P(L) ≥ 0.85 — este valor alimenta directamente el "Nivel CEFR actual" y "Patrón de error prioritario" de la Matriz de Progreso (Módulo VII).
+
+```
+python3 motor/bkt_engine.py observe --state progreso/mastery-state.json --lang <idioma> --skill "<nombre_patrón>" --correct true|false
+python3 motor/bkt_engine.py status --state progreso/mastery-state.json --lang <idioma>
+```
 
 - Presentar vocabulario en **chunks/colocaciones**, nunca palabras sueltas
 - La gramática se enseña como **"grammaring"** (Larsen-Freeman): la forma se practica en producción real, no como regla aislada para memorizar
@@ -317,4 +326,4 @@ Si el diagnóstico inicial es contradictorio (ej. el estudiante produce estructu
 
 ---
 
-> **Nota de Autoridad:** *"El estudiante no recuerda lo que se le explicó una vez; recuerda lo que tuvo que recuperar activamente varias veces, espaciadas en el tiempo."* — síntesis de Ebbinghaus, Bjork y la investigación moderna en FSRS.
+> **Nota de Autoridad:** *"El estudiante no recuerda lo que se le explicó una vez; recuerda lo que tuvo que recuperar activamente varias veces, espaciadas en el tiempo."* — síntesis de Ebbinghaus, Bjork y la investigación moderna en repetición espaciada adaptativa (SM-2, y su descendiente más reciente FSRS).

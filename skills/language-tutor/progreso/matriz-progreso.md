@@ -1,6 +1,8 @@
 # Matriz de Progreso — Estado Persistente del Estudiante
 
 > Archivo vivo. El Tutor de Idiomas **debe leer este archivo al inicio de cada invocación** (`/profeIdiomas`, Paso 1) y **actualizarlo al cierre de cada sesión** (Módulo VII de `SKILL.md`). Sin este archivo, la Matriz de Progreso es un concepto teórico, no un sistema operativo — este archivo es lo que la hace real entre conversaciones.
+>
+> El "Nivel CEFR actual" y "Patrón de error prioritario" de cada fila deben contrastarse contra `progreso/mastery-state.json` (motor `motor/bkt_engine.py`, ver `SKILL.md` Módulo IV) antes de escribirse — no son una impresión subjetiva de la conversación, son la probabilidad de dominio P(L) real acumulada por patrón.
 
 Última actualización: *(fecha de la última sesión registrada)*
 

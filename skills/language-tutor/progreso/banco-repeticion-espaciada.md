@@ -1,20 +1,35 @@
 # Banco de Repetición Espaciada — Estado Persistente
 
-> Archivo vivo. Registro operativo de los intervalos definidos en `SKILL.md` Módulo IV. El Tutor de Idiomas **debe leer este archivo al inicio de cada sesión** para saber qué ítems están vencidos hoy, y **añadir/actualizar filas al cierre de cada sesión**. Sin este archivo, los intervalos de repaso (1 día, 3 días, 7 días...) son una fórmula sin ejecución real.
+> Archivo de referencia legible para humanos. **La fuente de verdad real es `progreso/srs-state.json`**, gestionada por el motor `motor/sm2_engine.py` (algoritmo SM-2 real, no una tabla fija). Este archivo se regenera como resumen después de cada sesión — no editar directamente los intervalos aquí, editar vía el motor.
 
-Formato por fila: un ítem (palabra/chunk/estructura gramatical) por línea, con su idioma, la repetición en la que va, y la fecha en que vuelve a tocar.
+## Cómo funciona el motor (SM-2, Wozniak 1987)
 
-## Cola de Repaso Activa
+Cada ítem tiene un **easiness factor (EF)** individual que empieza en 2.5 y sube o baja según el desempeño real del estudiante en cada revisión (calidad 0-5, donde <3 = fallo). El intervalo hasta el próximo repaso se calcula como `intervalo_anterior × EF`, no con una tabla fija de días — dos estudiantes (o dos ítems distintos del mismo estudiante) divergen con el tiempo según su dificultad real. Esto es lo que hace el sistema adaptativo en vez de estático.
 
-| Idioma | Ítem | Tipo (léxico/gramática/pronunciación) | Repetición actual | Última exposición | Próximo repaso (fecha) | Origen (patrón de interferencia / bloque temático) |
-|---|---|---|---|---|---|---|
-| | | | | | | |
+```
+# Agregar un ítem nuevo detectado en sesión
+python3 motor/sm2_engine.py add --state progreso/srs-state.json --lang ingles \
+  --id "tercer_condicional_doble_aux" --text "If I had studied... (no had have)" \
+  --origin "interferencia L1 - hipercorrección"
 
-*(Tabla vacía — se puebla en la primera sesión de diagnóstico de cada idioma. Ordenar por "Próximo repaso" ascendente; al inicio de cada sesión, extraer las filas con fecha ≤ hoy como calentamiento de recuperación activa.)*
+# Registrar una revisión (quality: 0=falló completamente, 3=correcto con esfuerzo, 5=perfecto)
+python3 motor/sm2_engine.py review --state progreso/srs-state.json --lang ingles \
+  --id "tercer_condicional_doble_aux" --quality 4
 
-## Reglas de actualización
+# Ver qué está vencido hoy (calentamiento de la sesión)
+python3 motor/sm2_engine.py due --state progreso/srs-state.json --lang ingles
+```
 
-- Si el estudiante **recupera correctamente** un ítem sin ayuda: avanzar a la siguiente repetición según la tabla de intervalos de `SKILL.md` §5 (1→3→7→16→35 días, luego doblando)
-- Si el estudiante **falla la recuperación**: reiniciar el ítem en la repetición 1 (mismo día), no penalizar más allá de eso
-- Ítems que alcancen la repetición 6+ (35 días) sin fallos pasan a **"mantenimiento de largo plazo"**: se revisan solo si el idioma completo entra en modo mantenimiento (ver `ruta-maestra-multilingue.md` §5)
-- Cada ítem nuevo se registra con su **codificación elaborativa** (vínculo personal, `SKILL.md` Módulo IV) en la columna Origen cuando aplique, no solo la traducción
+## Reglas de uso durante la sesión
+
+- Al **inicio de sesión**: ejecutar `due` para el idioma activo — esos ítems son el calentamiento de recuperación activa obligatorio (Módulo VII)
+- Cada vez que se detecta un ítem nuevo (vocabulario, patrón de error, estructura): `add` inmediatamente, con la **codificación elaborativa** (Módulo IV) en `--origin`
+- Cada vez que se revisa un ítem existente en la sesión (el estudiante lo recupera con o sin éxito): `review` con la calidad observada — esto es lo que hace que el modelo "aprenda" tu curva de olvido real, ítem por ítem
+- Al **cierre de sesión**: regenerar el resumen humano abajo a partir de `srs-state.json` (vía `list`) para que quede legible sin tener que parsear JSON
+
+## Resumen legible (regenerar al cierre de cada sesión)
+
+*(Vacío hasta la primera sesión — se llena con la salida de `python3 motor/sm2_engine.py due --state progreso/srs-state.json`)*
+
+| Idioma | Ítem | EF actual | Próximo repaso |
+|---|---|---|---|

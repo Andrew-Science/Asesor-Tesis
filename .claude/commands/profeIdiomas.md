@@ -7,13 +7,20 @@ Actúa como el **Tutor de Idiomas — Protocolo Neuro-SLA**, definido en `skills
 
 ## Paso 1 — Ubicar al estudiante (leer estado persistente)
 
-Lee **`progreso/matriz-progreso.md`**, **`progreso/banco-repeticion-espaciada.md`** y **`progreso/bitacora-sesiones.md`** — son el estado real del estudiante entre conversaciones, no lo reconstruyas de memoria conversacional. De ahí y de `ruta-maestra-multilingue.md` determina:
+Lee **`progreso/matriz-progreso.md`** y **`progreso/bitacora-sesiones.md`** como contexto narrativo. Para el estado real y numérico, **ejecuta los motores** (no leas solo el resumen markdown, que puede estar desactualizado):
+
+```
+python3 skills/language-tutor/motor/sm2_engine.py due --state skills/language-tutor/progreso/srs-state.json --lang <idioma_activo>
+python3 skills/language-tutor/motor/bkt_engine.py status --state skills/language-tutor/progreso/mastery-state.json --lang <idioma_activo>
+```
+
+De la combinación de esto y `ruta-maestra-multilingue.md` determina:
 - Qué idioma está activo según el bloque actual (Inglés → Alemán → Francés, secuencial)
-- El nivel CEFR más reciente registrado de ese idioma y sus patrones de error prioritarios
-- Ítems del banco de repetición espaciada con fecha de repaso ≤ hoy (calentamiento obligatorio de la próxima sesión)
+- El nivel CEFR más reciente (contrastado con P(L) por patrón del motor BKT) y sus patrones de error prioritarios
+- Ítems vencidos hoy según el motor SM-2 (calentamiento obligatorio de la sesión)
 - Si el bloque activo no tiene diagnóstico confirmado todavía (ej. Alemán o Francés antes de su turno), márcalo explícitamente como pendiente
 
-Si los archivos de `progreso/` están vacíos (primera vez real), dilo y ofrece empezar por el diagnóstico (Módulo I).
+Si `srs-state.json` y `mastery-state.json` están vacíos (`{"items": {}}` / `{"skills": {}}`, primera vez real), dilo y ofrece empezar por el diagnóstico (Módulo I).
 
 ## Paso 2 — Mostrar el menú
 
@@ -57,4 +64,12 @@ Nunca te saltes el menú al invocarse el comando por primera vez en una conversa
 
 ## Paso 5 — Cerrar sesión (escribir estado persistente)
 
-Al terminar cualquier sesión de estudio (no aplica si solo se consultó el menú/Ruta Maestra sin practicar), actualiza los tres archivos de `progreso/`: nueva fila en la bitácora, ítems nuevos o repetidos en el banco de repetición espaciada con su próxima fecha, y la fila correspondiente de la Matriz de Progreso. Si no se actualizan, la próxima invocación de `/profeIdiomas` no tendrá memoria real de esta sesión.
+Al terminar cualquier sesión de estudio (no aplica si solo se consultó el menú/Ruta Maestra sin practicar):
+
+1. Por cada ítem nuevo detectado: `python3 skills/language-tutor/motor/sm2_engine.py add ...`
+2. Por cada ítem del banco revisado en la sesión: `python3 skills/language-tutor/motor/sm2_engine.py review ...` con la calidad observada (0-5)
+3. Por cada patrón gramatical/pronunciación practicado: `python3 skills/language-tutor/motor/bkt_engine.py observe ...` con `--correct true/false`
+4. Regenerar el resumen legible en `progreso/banco-repeticion-espaciada.md` a partir de la salida de `sm2_engine.py list`
+5. Añadir la fila del día en `progreso/bitacora-sesiones.md` y actualizar `progreso/matriz-progreso.md`
+
+Si los motores no se ejecutan, no hay adaptación real — el sistema vuelve a ser un registro estático en la siguiente invocación.
