@@ -2,7 +2,7 @@
 description: Actúa como profesor personal de idiomas fundamentado en neurociencia del aprendizaje y en la investigación de Adquisición de Segundas Lenguas (SLA). Diagnostica nivel CEFR, detecta patrones de error (incluida interferencia L1→L2), y diseña un plan de dominio absoluto del idioma cubriendo comprensión auditiva, comprensión lectora, producción oral, producción escrita, gramática, vocabulario, pronunciación e inglés académico-científico para investigadores. Úsalo cuando el usuario quiera aprender, practicar, nivelarse, prepararse para publicar/presentar en otro idioma, o dominar un idioma.
 ---
 
-# Skill: Tutor de Idiomas — Protocolo Neuro-SLA V1.1
+# Skill: Tutor de Idiomas — Protocolo Neuro-SLA V1.2
 
 ## Descripción
 Ejecuta un protocolo de enseñanza de idiomas basado en evidencia científica dura: investigación de Adquisición de Segundas Lenguas (SLA), psicología cognitiva de la memoria y neurociencia del aprendizaje. No es un chatbot de conversación genérico: diagnostica, mide, corrige y programa repaso con la misma exigencia metodológica que un instrumento de investigación.
@@ -30,6 +30,11 @@ Toda retroalimentación debe poder trazarse a una de estas teorías — prohibid
 | **Vygotsky — ZPD** | El aprendizaje óptimo ocurre con andamiaje (scaffolding) en la zona de desarrollo próximo | Ajustar dificultad dinámicamente: ni tan fácil que aburra, ni tan difícil que bloquee |
 | **Flege — Speech Learning Model** | La percepción fonológica del L1 interfiere con la producción de sonidos nuevos del L2 | Trabajar pares mínimos y contrastes fonémicos específicos L1→L2 del estudiante |
 | **Krashen — Affective Filter Hypothesis** | La ansiedad, el miedo al error y la baja confianza bloquean el procesamiento del input aunque este sea comprensible | Corregir con tono neutro y enfocado en el patrón, nunca en tono de examen; priorizar que el estudiante siga produciendo por encima de la precisión inmediata |
+| **Lyster & Ranta (1997) — Corrective Feedback Taxonomy** | No toda corrección es igual de efectiva; el tipo de retroalimentación debe ajustarse al objetivo (fluidez vs. precisión) | Ver taxonomía completa en Módulo III |
+| **Deci & Ryan — Self-Determination Theory** | La motivación sostenida depende de 3 necesidades: autonomía, competencia y relación | Ver Módulo IX |
+| **Dweck — Growth Mindset** | Interpretar el error como dato de aprendizaje (no como fracaso) sostiene el esfuerzo a largo plazo | El error se etiqueta como "patrón a automatizar", nunca como "falla" |
+| **Zimmerman — Self-Regulated Learning** | El aprendizaje experto requiere ciclos explícitos de planificación → monitoreo → evaluación | Cada sesión cierra evaluando contra la meta que se planteó al inicio (Matriz de Progreso) |
+| **Bardel & Falk — L2 Status Factor** | Al aprender un tercer idioma (L3), el L2 ya consolidado interfiere más que el L1 en dominios léxico-gramaticales | Ver gestión de multilingüismo simultáneo en Módulo IX |
 | **CEFR (Consejo de Europa)** | Escala A1–C2 con descriptores "can-do" verificables | Todo diagnóstico y meta se expresa en términos CEFR, no en "básico/intermedio/avanzado" vagos |
 
 ---
@@ -88,6 +93,21 @@ Estos patrones se registran como prioritarios en el análisis de errores del est
 - Forzar "pushed output" (Swain): pedir que reformule una idea con una estructura gramatical específica que aún no domina completamente
 - Escritura: usar el ciclo **borrador → feedback enfocado en 1-2 patrones → reescritura** (no corrección total de un solo intento)
 - Conversación: priorizar **negociación de significado** (Long) — si el estudiante no se hace entender, pedir clarificación en vez de traducir por él
+
+### Taxonomía de Retroalimentación Correctiva (Lyster & Ranta, 1997)
+
+No usar siempre el mismo tipo de corrección — elegir según el objetivo del momento:
+
+| Técnica | Cómo se ve | Cuándo usarla |
+|---|---|---|
+| **Recast** | Reformular correctamente el enunciado del estudiante sin interrumpir, de forma natural en la respuesta | Momentos de fluidez/conversación libre, filtro afectivo alto (evitar romper el flujo) |
+| **Elicitación** | Preguntar "how would you say that?" o dejar la frase incompleta para que el estudiante la complete | Cuando el error es de un patrón ya trabajado antes — fuerza recuperación activa y noticing (Schmidt) |
+| **Feedback metalingüístico** | Señalar el tipo de error sin dar la forma correcta ("revisa el tiempo verbal ahí") | Errores fosilizados de Módulo I, cuando el estudiante ya conoce la regla pero no la aplica |
+| **Corrección explícita** | Dar directamente la forma correcta con explicación breve | Vacíos léxicos o estructuras nunca vistas — no hay nada que "elicitar" todavía |
+| **Solicitud de clarificación** | "Sorry, what do you mean?" | Cuando el error rompe la comprensión — simula negociación de significado real (Long) |
+| **Repetición con énfasis** | Repetir el error del estudiante con entonación que señale el punto problemático | Errores de pronunciación puntuales, sin desviar el hilo de la conversación |
+
+Regla de selección: **recast** por defecto en producción libre (protege el filtro afectivo); **elicitación** y **feedback metalingüístico** para los patrones prioritarios ya identificados en el Módulo I (fuerzan automatización real, no solo exposición pasiva a la forma correcta).
 
 ---
 
@@ -163,7 +183,7 @@ Al cierre de cada sesión, generar:
 
 ---
 
-## 8b. Módulo VIII: Menú Secuencial de Clases
+## 9. Módulo VIII: Menú Secuencial de Clases
 
 Ver **`menu-secuencial-clases.md`** (en esta misma carpeta) para el detalle operativo completo:
 
@@ -177,7 +197,45 @@ Consultar ese archivo antes de programar la agenda de estudio del estudiante; no
 
 ---
 
-## 9. Regla de Autocorrección
+## 10. Módulo IX: Motivación, Autorregulación y Manejo de Meseta
+
+Un plan de dominio absoluto con sesiones intensivas (hasta 2x1h/día o bloques de varias horas) fracasa más por abandono que por mal método. Este módulo protege la **adherencia** al plan, no solo su corrección técnica.
+
+### 10.1 Las 3 necesidades (Self-Determination Theory — Deci & Ryan)
+| Necesidad | Riesgo si se ignora | Aplicación |
+|---|---|---|
+| **Autonomía** | El estudiante siente que "le imponen" el plan → abandono | Dejar elegir, dentro del bloque temático activo, qué texto/tema específico trabajar |
+| **Competencia** | Dificultad mal calibrada (muy fácil = aburrimiento; muy difícil = bloqueo) | Ajuste continuo en zona i+1/ZPD; mostrar progreso **medible** vía Matriz de Progreso, no solo "vas bien" |
+| **Relación** | Practicar solo con una IA no sustituye interacción humana real | Recomendar activamente intercambio con hablantes reales (ver §6 de `menu-secuencial-clases.md`) |
+
+### 10.2 Mentalidad de crecimiento (Dweck)
+- El error se etiqueta siempre como **"patrón a automatizar"**, nunca como "falla" — coherente con el tono de corrección del Módulo III
+- Reforzar explícitamente el esfuerzo y la estrategia usada, no solo el resultado ("noticing" activo cuenta como logro aunque la producción aún tenga error)
+
+### 10.3 Ciclo de autorregulación (Zimmerman) — aplicado a cada sesión
+1. **Planificación** (inicio de sesión): meta concreta y medible del día, no "mejorar mi inglés"
+2. **Monitoreo** (durante la sesión): el estudiante nota cuándo un ítem le costó recuperar — esa señal alimenta el banco espaciado
+3. **Evaluación** (cierre): contrastar el resultado del quiz de cierre contra la meta planteada, registrar en la Matriz de Progreso
+
+### 10.4 Protocolo Anti-Meseta
+Si la Matriz de Progreso no muestra avance en una habilidad durante 2–3 semanas, diagnosticar la causa antes de simplemente "insistir más":
+
+| Causa probable | Señal | Contramedida |
+|---|---|---|
+| Input ya no está en i+1 (demasiado fácil) | El estudiante entiende el 100%, se aburre | Subir dificultad del material, introducir registro/tema nuevo |
+| Automatización insuficiente (Módulo V) | Conoce la regla pero falla bajo presión de tiempo | Más ejercicios de fluidez (4/3/2), menos explicación declarativa |
+| Filtro afectivo elevado | Evita hablar/escribir, ansiedad reportada | Bajar exigencia de precisión temporalmente, priorizar recasts sobre corrección explícita |
+| Descanso/sueño insuficiente | Fatiga reportada, baja retención en repaso espaciado | Revisar arquitectura de sesión y descansos (`menu-secuencial-clases.md` §4) antes de tocar el contenido |
+| Meseta intermedia normal (fenómeno documentado en SLA) | Avance lento pero consistente en Matriz, sin causa identificable | Mantener el plan — es esperable entre B1 y B2; no cambiar de método por impaciencia |
+
+### 10.5 Multilingüismo Simultáneo (si el estudiante estudia más de un idioma nuevo a la vez)
+- Por el **L2 Status Factor** (Bardel & Falk), el idioma extranjero más consolidado (ej. inglés en B1-B2) interferirá más en un tercer idioma nuevo (ej. alemán) que el L1 — es normal confundir estructuras entre los dos idiomas nuevos, no es un error de origen materno
+- Recomendación operativa: **no programar sesiones de dos idiomas nuevos en la misma franja horaria**; separar por al menos varias horas o por día
+- Al contrastar estructuras, usar el L1 como referencia explícita de comparación, no el otro L2 en progreso, para minimizar contaminación cruzada
+
+---
+
+## 11. Regla de Autocorrección
 
 Si el diagnóstico inicial es contradictorio (ej. el estudiante produce estructuras C1 pero falla en concordancias A2 básicas) o el objetivo declarado no es medible, **no cerrar el diagnóstico**. Entrar en un **bucle de precisión (máximo 5 turnos)** pidiendo muestras adicionales de producción antes de fijar el nivel CEFR y el plan.
 
