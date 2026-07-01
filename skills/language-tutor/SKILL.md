@@ -2,7 +2,7 @@
 description: Actúa como profesor personal de idiomas fundamentado en neurociencia del aprendizaje y en la investigación de Adquisición de Segundas Lenguas (SLA). Enseña cualquier idioma (inglés, francés, alemán, etc.) desde L1 español. Diagnostica nivel CEFR, detecta patrones de error (incluida interferencia L1→L2 con tablas específicas por idioma), y diseña un plan de dominio absoluto cubriendo comprensión auditiva, comprensión lectora, producción oral, producción escrita, gramática, vocabulario, pronunciación y registro académico-científico para investigadores. Úsalo cuando el usuario quiera aprender, practicar, nivelarse, prepararse para publicar/presentar en otro idioma, o dominar un idioma — incluido manejo de varios idiomas nuevos a la vez.
 ---
 
-# Skill: Tutor de Idiomas — Protocolo Neuro-SLA V1.3
+# Skill: Tutor de Idiomas — Protocolo Neuro-SLA V1.4
 
 ## Descripción
 Ejecuta un protocolo de enseñanza de idiomas basado en evidencia científica dura: investigación de Adquisición de Segundas Lenguas (SLA), psicología cognitiva de la memoria y neurociencia del aprendizaje. No es un chatbot de conversación genérico: diagnostica, mide, corrige y programa repaso con la misma exigencia metodológica que un instrumento de investigación.
@@ -88,6 +88,18 @@ Cuando el L1 del estudiante sea español, verificar activamente los patrones de 
 | Adjetivos siempre pospuestos al sustantivo | *"une maison **belle**"* | *"une **belle** maison"* (grupo BAGS: belleza/edad/bondad/tamaño va antepuesto) | En español la posposición del adjetivo es la norma casi absoluta; el francés tiene un subgrupo con anteposición obligatoria |
 | Subjuntivo por defecto donde el francés exige indicativo (o viceversa) | Selección errónea tras "après que" (indicativo) por analogía con "antes de que" (subjuntivo en español) | *"après que" + indicativo* | Los disparadores de modo no coinciden entre español y francés aunque la estructura se vea similar |
 
+#### Español → Alemán
+
+| Patrón de error | Ejemplo real | Corrección | Causa |
+|---|---|---|---|
+| Orden SVO fijo en vez de V2 / verbo final en subordinada | *"Ich weiß, dass er **ist** müde"* | *"Ich weiß, dass er müde **ist**"* (verbo va al final en subordinada) | El español mantiene SVO en subordinadas; el alemán no |
+| Ausencia de declinación por caso (Nominativ/Akkusativ/Dativ) | *"Ich sehe **der** Mann"* | *"Ich sehe **den** Mann"* (acusativo) | El español no declina sustantivos/artículos por función sintáctica, solo pronombres (yo/me/mí) |
+| Género gramatical asumido igual o análogo al español | *"**der** Sonne"* (asumiendo femenino de "el sol" invertido mal) | *"**die** Sonne"* (fem.) — y *"**der** Mond"* (masc.), inverso a "la luna" (fem., ES) | El alemán tiene 3 géneros, con frecuencia opuestos al género español del mismo referente |
+| Verbo separable sin partícula al final | *"Ich rufe dich"* (falta "an" de *anrufen*) | *"Ich rufe dich **an**"* | No existe estructura equivalente en español; el hablante omite la partícula por no tener dónde "colgarla" mentalmente |
+| Adjetivo sin declinar según caso/artículo | *"ein **gut** Mann"* | *"ein **guter** Mann"* | En español el adjetivo solo marca género/número; en alemán also marca caso y tipo de artículo |
+| Falso amigo *also* / "también" | *"Ich **also** komme"* (queriendo decir "yo también voy") | *also* = "por lo tanto/entonces"; "también" = **auch** | Similitud con el inglés "also" (que sí significa "también") confunde por partida doble |
+| Sustantivo compuesto traducido con preposición | *"Firma für Versicherung"* en vez de la palabra fusionada | *"Versicherungsfirma"* | El español construye con "de + sustantivo"; el alemán fusiona en una sola palabra (Komposita) |
+
 Estos patrones se registran como prioritarios en el análisis de errores del estudiante y alimentan el banco de repetición espaciada (Módulo IV) con ejemplos personalizados, no genéricos.
 
 ---
@@ -164,6 +176,10 @@ Sin acceso a un motor FSRS real, usar esta progresión como aproximación manual
 | Francés | /y/ (u francesa, labios redondeados + lengua adelantada) vs /u/ | *tu/tout*, *rue/roue* |
 | Francés | *r* uvular (/ʁ/) vs *r* alveolar española | Práctica aislada de /ʁ/ antes de integrarla en palabras (evita sustitución directa por la r española) |
 | Francés | *Liaison* (enlace consonántico entre palabras) | *les amis* [lezami], *vous avez* [vuzave] — nunca pronunciar como palabras aisladas |
+| Alemán | Vocales largas/cortas distintivas de significado, sin equivalente fonémico en español | *Staat/Stadt*, *Miete/Mitte* |
+| Alemán | Umlauts (/y/, /ø/, /ɛ/ con redondeo: ü, ö, ä), inexistentes en el inventario vocálico del español | *Müller/Muller* (sin diéresis no existe), *schön* vs *schon* |
+| Alemán | Ensordecimiento de consonante final (*Auslautverhärtung*) | *Hund* se pronuncia [hʊnt], no [hʊnd] — el español no ensordece consonantes finales |
+| Alemán | *Ich-Laut* /ç/ vs *Ach-Laut* /x/, ambos ausentes en español estándar | *ich* [ɪç] vs *ach* [ax] — practicar por separado antes de contrastarlos entre sí |
 
 ---
 
