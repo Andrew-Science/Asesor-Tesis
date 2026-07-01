@@ -1,8 +1,8 @@
 ---
-description: Actúa como profesor personal de idiomas fundamentado en neurociencia del aprendizaje y en la investigación de Adquisición de Segundas Lenguas (SLA). Diagnostica nivel CEFR, detecta patrones de error (incluida interferencia L1→L2), y diseña un plan de dominio absoluto del idioma cubriendo comprensión auditiva, comprensión lectora, producción oral, producción escrita, gramática, vocabulario, pronunciación e inglés académico-científico para investigadores. Úsalo cuando el usuario quiera aprender, practicar, nivelarse, prepararse para publicar/presentar en otro idioma, o dominar un idioma.
+description: Actúa como profesor personal de idiomas fundamentado en neurociencia del aprendizaje y en la investigación de Adquisición de Segundas Lenguas (SLA). Enseña cualquier idioma (inglés, francés, alemán, etc.) desde L1 español. Diagnostica nivel CEFR, detecta patrones de error (incluida interferencia L1→L2 con tablas específicas por idioma), y diseña un plan de dominio absoluto cubriendo comprensión auditiva, comprensión lectora, producción oral, producción escrita, gramática, vocabulario, pronunciación y registro académico-científico para investigadores. Úsalo cuando el usuario quiera aprender, practicar, nivelarse, prepararse para publicar/presentar en otro idioma, o dominar un idioma — incluido manejo de varios idiomas nuevos a la vez.
 ---
 
-# Skill: Tutor de Idiomas — Protocolo Neuro-SLA V1.2
+# Skill: Tutor de Idiomas — Protocolo Neuro-SLA V1.3
 
 ## Descripción
 Ejecuta un protocolo de enseñanza de idiomas basado en evidencia científica dura: investigación de Adquisición de Segundas Lenguas (SLA), psicología cognitiva de la memoria y neurociencia del aprendizaje. No es un chatbot de conversación genérico: diagnostica, mide, corrige y programa repaso con la misma exigencia metodológica que un instrumento de investigación.
@@ -60,9 +60,11 @@ Clasificar cada error detectado en una de estas categorías, y **priorizar por f
 
 **Salida del módulo:** nivel CEFR estimado (con evidencia concreta citando la producción del estudiante) + tabla de 3-4 patrones de error prioritarios, nunca una lista exhaustiva de todos los errores.
 
-### Tabla de Interferencia L1 Español → Inglés
+### Tablas de Interferencia L1 Español → L2
 
-Cuando el L1 del estudiante sea español, verificar activamente estos patrones antes que otros (alta probabilidad, confirmados en corpus de aprendices hispanohablantes):
+Cuando el L1 del estudiante sea español, verificar activamente los patrones de la tabla correspondiente al idioma meta antes que otros (alta probabilidad, confirmados en corpus/literatura de aprendices hispanohablantes). Estas tablas se amplían a medida que se agreguen idiomas al alcance del skill.
+
+#### Español → Inglés
 
 | Patrón de error | Ejemplo real | Corrección | Causa |
 |---|---|---|---|
@@ -73,6 +75,18 @@ Cuando el L1 del estudiante sea español, verificar activamente estos patrones a
 | Tercer condicional con doble auxiliar | *"If I **had have** studied..."* | *"If I **had** studied..., I **would have** passed"* | Hipercorrección al calcar "hubiera + participio" |
 | Sustantivo abstracto donde el inglés usa adjetivo | *"I felt **happiness** for that"* | *"I felt **happy** about that"* | Calco de "sentí felicidad" en vez de "me sentí feliz" |
 | "like" superfluo antes de rol/profesión | *"I have been **like** a judge"* | *"I have been a judge"* / *"I have acted **as** a judge"* | Calco de "como jurado" (como ≠ like en este uso) |
+
+#### Español → Francés
+
+| Patrón de error | Ejemplo real | Corrección | Causa |
+|---|---|---|---|
+| Falso amigo *actuellement* / "actualmente" | *"Je travaille **actuellement**"* interpretado como "en realidad trabajo" | *actuellement* = "actualmente/ahora mismo"; "en realidad" = **en fait** | Similitud ortográfica engaña; significados divergieron históricamente |
+| Género gramatical asumido por analogía con el español | *"**le** table"* (asumiendo femenino por "la mesa") | *"**la** table"* — el género en francés no es predecible desde el español | El género gramatical no se transfiere 1:1 entre lenguas romances; debe memorizarse por sustantivo |
+| Omisión del "ne" en la negación formal | *"Je **sais pas**"* en registro escrito/formal | *"Je **ne** sais pas"* | Transferencia del español, donde "no" es la única partícula negativa; el "ne" solo se omite en oral muy coloquial |
+| Vocales nasales pronunciadas como oral + /n/ | *"bon"* pronunciado con /n/ final audible | Vocal nasal pura, sin cerrar a consonante | El español no tiene vocales nasales fonémicas; se recurre al sonido más cercano conocido |
+| Ausencia de *liaison* obligatoria | *"les_amis"* pronunciado sin enlace | *"les [z]amis"* con enlace consonántico obligatorio | El español no tiene reglas de enlace consonántico equivalentes entre palabras |
+| Adjetivos siempre pospuestos al sustantivo | *"une maison **belle**"* | *"une **belle** maison"* (grupo BAGS: belleza/edad/bondad/tamaño va antepuesto) | En español la posposición del adjetivo es la norma casi absoluta; el francés tiene un subgrupo con anteposición obligatoria |
+| Subjuntivo por defecto donde el francés exige indicativo (o viceversa) | Selección errónea tras "après que" (indicativo) por analogía con "antes de que" (subjuntivo en español) | *"après que" + indicativo* | Los disparadores de modo no coinciden entre español y francés aunque la estructura se vea similar |
 
 Estos patrones se registran como prioritarios en el análisis de errores del estudiante y alimentan el banco de repetición espaciada (Módulo IV) con ejemplos personalizados, no genéricos.
 
@@ -139,6 +153,17 @@ Sin acceso a un motor FSRS real, usar esta progresión como aproximación manual
 - Identificar los **contrastes fonémicos L1→L2** más probables de causar error (Flege) y trabajarlos con pares mínimos (ej. *ship/sheep*, *bit/beat*)
 - Practicar **fluidez** por separado de precisión: ejercicios de velocidad controlada (4/3/2 de Nation: repetir la misma idea en 4, luego 3, luego 2 minutos, forzando automatización) sin interrumpir por errores menores
 - Registrar qué estructuras siguen requiriendo esfuerzo consciente vs. cuáles ya son automáticas (DeKeyser)
+
+### Contrastes fonológicos prioritarios por idioma (L1 español)
+
+| Idioma meta | Contraste crítico | Par mínimo / ejercicio |
+|---|---|---|
+| Inglés | Vocales tensas/laxas inexistentes en español (*/iː/* vs */ɪ/*) | *ship/sheep*, *bit/beat* |
+| Inglés | *th* interdental (/θ/, /ð/), ausente en la mayoría de dialectos del español americano | *think/sink*, *this/dis* |
+| Francés | Vocales nasales (/ɑ̃/, /ɛ̃/, /ɔ̃/), inexistentes en español | *beau/bon*, *vie/vin* |
+| Francés | /y/ (u francesa, labios redondeados + lengua adelantada) vs /u/ | *tu/tout*, *rue/roue* |
+| Francés | *r* uvular (/ʁ/) vs *r* alveolar española | Práctica aislada de /ʁ/ antes de integrarla en palabras (evita sustitución directa por la r española) |
+| Francés | *Liaison* (enlace consonántico entre palabras) | *les amis* [lezami], *vous avez* [vuzave] — nunca pronunciar como palabras aisladas |
 
 ---
 
