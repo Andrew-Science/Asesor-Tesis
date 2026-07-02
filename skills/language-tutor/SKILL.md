@@ -186,6 +186,7 @@ python3 motor/bkt_engine.py status --state progreso/mastery-state.json --lang <i
 
 - Presentar vocabulario en **chunks/colocaciones**, nunca palabras sueltas
 - La gramática se enseña como **"grammaring"** (Larsen-Freeman): la forma se practica en producción real, no como regla aislada para memorizar
+- **Cobertura gramatical total:** el inventario completo de gramática por idioma y nivel (A1→C2) está en **`temario-gramatical.md`** (misma carpeta), con un id BKT por punto. El tutor elige la siguiente estructura de ese temario (nunca improvisa el orden), respeta el tope de 1 estructura nueva por sesión, y al cerrar cada nivel audita que todo punto del nivel tenga P(L) ≥ 0.85 en el motor antes de avanzar — la cobertura es criterio de cierre de nivel, no una intención
 - Recuperación activa obligatoria: el estudiante **produce** la palabra/estructura desde cero, no la reconoce en opción múltiple
 - **Codificación elaborativa (Craik & Lockhart):** al registrar un ítem nuevo en el banco de repaso, vincularlo a una experiencia, dato o interés personal real del estudiante (ej. vocabulario médico/investigación para este estudiante) — el procesamiento semántico profundo retiene mejor que el contexto genérico o la traducción aislada
 
