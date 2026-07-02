@@ -40,7 +40,32 @@ Orden recomendado para cubrir **todos los temas cotidianos y profesionales**, de
 
 ## 3. Plantillas de Sesión por Duración
 
-### 3.1 — 30 minutos (mantenimiento / día de poco tiempo)
+### 3.0 — Escalera de Progresión de Duración (obligatoria)
+
+La duración de sesión no es una preferencia fija que se repite indefinidamente: es una **variable de entrenamiento** (resistencia atencional entrenada — coherente con §2, la tolerancia atencional crece con la práctica). El tutor la administra así:
+
+**Escalera:** 30 min → 1h → 2h → 3h → 4h → 5h (techo absoluto, ver advertencia §3.6)
+
+| Regla | Detalle |
+|---|---|
+| **Punto de partida** | 1h (la sesión estándar del plan 2×1h/día). 30 min existe solo como mantenimiento |
+| **Subir un peldaño** | Tras completar **4 sesiones** en la duración actual con quiz de cierre ≥ 80% y sin señales de saturación registradas en la bitácora, la siguiente sesión completa recomendada es la del peldaño superior |
+| **Bajar un peldaño** | Si el quiz de cierre < 60% o hay saturación/fatiga reportada en 2 sesiones seguidas, la recomendación baja un peldaño (Yerkes-Dodson: el reto debe ser moderado, no abrumador) — la escalera también desciende, sin drama |
+| **30 min no cuenta** | La sesión de 30 min es válida como mantenimiento en días sin tiempo, pero **no avanza la escalera** y no debe usarse dos días seguidos salvo fuerza mayor — el tutor debe señalarlo si ocurre |
+| **Elegir menos que lo recomendado** | Siempre permitido (autonomía — Módulo IX), pero queda registrado como mantenimiento, no como progreso de escalera |
+| **Fuente de datos** | El tutor lee `progreso/bitacora-sesiones.md` (columna duración + resultado de quiz) antes de armar el menú de sesiones, y calcula ahí la duración recomendada de hoy — nunca pregunta "¿cuánto tiempo tienes?" en seco |
+
+**Matiz honesto (no eliminar):** subir la escalera entrena resistencia atencional, pero **no sustituye la distribución**: dos sesiones separadas por sueño consolidan más que una sesión gigante equivalente (Rasch & Born, §5). La escalera sube la capacidad por sesión; la columna vertebral del plan sigue siendo la frecuencia diaria.
+
+### Submenú de sesiones (cómo presentar la opción "Sesión rápida")
+
+Al ofrecer las duraciones, **nunca listarlas en seco** ("¿30min, 1h, 2h...?"). Construir el submenú con datos reales del estudiante:
+
+1. Leer bitácora (últimas 4-6 sesiones: duración, quiz, saturación) → calcular **duración recomendada de hoy** según la Escalera
+2. Ejecutar los motores (`sm2_engine.py due`, `bkt_engine.py status`) → ítems vencidos y patrones con P(L) < 0.85
+3. Presentar cada duración disponible con **qué contendría hoy** (bloque temático actual, cuántos ítems vencidos entran al calentamiento, qué patrón prioritario se trabaja, y qué añade cada duración extra respecto a la anterior), marcando la recomendada con la razón ("llevas 4 sesiones de 1h con quiz ≥80% → hoy toca 2h")
+
+### 3.1 — 30 minutos (mantenimiento / día de poco tiempo — no avanza la escalera)
 
 | Bloque | Duración | Actividad |
 |---|---|---|

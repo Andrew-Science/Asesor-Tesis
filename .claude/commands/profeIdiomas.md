@@ -34,7 +34,7 @@ Idioma activo: <idioma>  |  Nivel CEFR: <nivel>  |  Bloque temático: <bloque>
 
 1. Continuar con la sesión de hoy (según rotación semanal de la Ruta Maestra)
 2. Diagnóstico inicial / re-diagnóstico de nivel (Módulo I)
-3. Sesión rápida — elegir duración (30min / 1h / 2h / 3h / 4h / 5h)
+3. Elegir sesión de hoy — submenú con cada duración disponible, su contenido según tu progreso, y la duración recomendada por la Escalera (§3.0 de menu-secuencial-clases.md)
 4. Repaso espaciado — ítems vencidos del banco de repetición
 5. Ver mi Matriz de Progreso (7 habilidades × 3 idiomas)
 6. Simulacro académico-científico (papers, peer review, defensa) — Módulo VI
@@ -55,6 +55,7 @@ Argumento recibido: $ARGUMENTS
 Al ejecutar cualquier opción, sigue estrictamente los módulos correspondientes de `SKILL.md`:
 - Diagnóstico → Módulo I
 - Sesiones → Módulo II/III (input/output) + plantilla de duración de `menu-secuencial-clases.md`
+- **Opción 3 (elegir sesión):** aplicar el submenú personalizado y la Escalera de Progresión de Duración (`menu-secuencial-clases.md` §3.0) — leer la bitácora para calcular la duración recomendada de hoy, mostrar qué contiene cada duración con los datos reales del estudiante, y no permitir que la misma duración se repita indefinidamente sin señalar que toca subir el peldaño
 - Repaso espaciado → Módulo IV
 - Matriz de Progreso → cierre de Módulo VII
 - Simulacro académico → Módulo VI
