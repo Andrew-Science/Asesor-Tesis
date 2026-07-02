@@ -1,3 +1,72 @@
 {
-  "skills": {}
+  "skills": {
+    "ingles:gerundio_tras_preposicion": {
+      "history": [
+        {
+          "correct": false,
+          "date": "2026-07-02",
+          "p_l_after": 0.1932
+        }
+      ],
+      "lang": "ingles",
+      "mastered": false,
+      "n_observations": 1,
+      "p_g": 0.2,
+      "p_l": 0.1932,
+      "p_s": 0.1,
+      "p_t": 0.15,
+      "skill": "gerundio_tras_preposicion"
+    },
+    "ingles:pasado_narrativo": {
+      "history": [
+        {
+          "correct": false,
+          "date": "2026-07-02",
+          "p_l_after": 0.1932
+        }
+      ],
+      "lang": "ingles",
+      "mastered": false,
+      "n_observations": 1,
+      "p_g": 0.2,
+      "p_l": 0.1932,
+      "p_s": 0.1,
+      "p_t": 0.15,
+      "skill": "pasado_narrativo"
+    },
+    "ingles:proposito_to_infinitivo": {
+      "history": [
+        {
+          "correct": false,
+          "date": "2026-07-02",
+          "p_l_after": 0.1932
+        }
+      ],
+      "lang": "ingles",
+      "mastered": false,
+      "n_observations": 1,
+      "p_g": 0.2,
+      "p_l": 0.1932,
+      "p_s": 0.1,
+      "p_t": 0.15,
+      "skill": "proposito_to_infinitivo"
+    },
+    "ingles:tercer_condicional": {
+      "history": [
+        {
+          "correct": false,
+          "date": "2026-07-02",
+          "p_l_after": 0.1932
+        }
+      ],
+      "lang": "ingles",
+      "mastered": false,
+      "n_observations": 1,
+      "p_g": 0.2,
+      "p_l": 0.1932,
+      "p_s": 0.1,
+      "p_t": 0.15,
+      "skill": "tercer_condicional"
+    }
+  }
 }

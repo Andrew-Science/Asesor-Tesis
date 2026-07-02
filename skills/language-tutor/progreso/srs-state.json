@@ -1,3 +1,64 @@
 {
-  "items": {}
+  "items": {
+    "ingles:as_a_judge": {
+      "ef": 2.5,
+      "history": [],
+      "id": "as_a_judge",
+      "interval": 0,
+      "lang": "ingles",
+      "last_review": null,
+      "n": 0,
+      "next_review": "2026-07-02",
+      "origin": "tu experiencia real como jurado de tesis",
+      "text": "I served as a judge in a thesis defense (como jurado = as, no like)"
+    },
+    "ingles:attendance": {
+      "ef": 2.5,
+      "history": [],
+      "id": "attendance",
+      "interval": 0,
+      "lang": "ingles",
+      "last_review": null,
+      "n": 0,
+      "next_review": "2026-07-02",
+      "origin": "vacío léxico del texto de la conferencia; útil para congresos científicos",
+      "text": "attendance = asistencia (número de personas presentes en un evento)"
+    },
+    "ingles:feel_happy_about": {
+      "ef": 2.5,
+      "history": [],
+      "id": "feel_happy_about",
+      "interval": 0,
+      "lang": "ingles",
+      "last_review": null,
+      "n": 0,
+      "next_review": "2026-07-02",
+      "origin": "calco 'sentí felicidad' de tu narración de Pamplona",
+      "text": "I felt happy about that (no 'I felt happiness for that')"
+    },
+    "ingles:make_the_bed": {
+      "ef": 2.5,
+      "history": [],
+      "id": "make_the_bed",
+      "interval": 0,
+      "lang": "ingles",
+      "last_review": null,
+      "n": 0,
+      "next_review": "2026-07-02",
+      "origin": "tu rutina de las 5am",
+      "text": "make the bed (no 'pick up my bed')"
+    },
+    "ingles:wait_vs_expect": {
+      "ef": 2.5,
+      "history": [],
+      "id": "wait_vs_expect",
+      "interval": 0,
+      "lang": "ingles",
+      "last_review": null,
+      "n": 0,
+      "next_review": "2026-07-02",
+      "origin": "falso cognado detectado en tu diagnóstico: 'I expect a moment'",
+      "text": "I waited a moment (esperar tiempo = wait; expect = anticipar que algo pase)"
+    }
+  }
 }
