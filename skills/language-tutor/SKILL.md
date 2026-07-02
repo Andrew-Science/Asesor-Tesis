@@ -258,7 +258,7 @@ Al cierre de cada sesión, actualizar la Matriz de Progreso (estructura completa
 
 ### Chequeo de Ilusión de Fluidez
 
-Practicar solo con el tutor IA infla la sensación de dominio: el tutor se adapta al estudiante (ritmo, tolerancia a ambigüedad, ausencia de interrupciones) de forma que un hablante nativo real no lo haría. Cada ~4-6 semanas, recomendar explícitamente una validación externa real (hablante nativo, examen simulado, intercambio) y registrar el resultado en `progreso/matriz-progreso.md` — no basta con la autoevaluación conversacional para confirmar un nivel CEFR.
+Practicar solo con el tutor IA infla la sensación de dominio: el tutor se adapta al estudiante (ritmo, tolerancia a ambigüedad, ausencia de interrupciones) de forma que un hablante nativo real no lo haría. Cada ~4-6 semanas, recomendar explícitamente una validación externa real (hablante nativo, examen simulado, intercambio) y registrar el resultado en `progreso/matriz-progreso.md` — no basta con la autoevaluación conversacional para confirmar un nivel CEFR. Para metas de certificación oficial (Cambridge B2 First / C1 Advanced, Goethe-Zertifikat, DELF/DALF) y su mapeo con la Ruta Maestra, ver **`anexo-examenes-certificacion.md`** (misma carpeta) — los simulacros de la opción 6 del menú pueden configurarse en formato de examen oficial.
 
 ---
 
